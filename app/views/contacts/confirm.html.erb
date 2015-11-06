@@ -1,2 +1,10 @@
-<h1>Contacts#confirm</h1>
-<p>Find me in app/views/contacts/confirm.html.erb</p>
+<h1>確認</h1>
+<%= form_for @contact,url:contact_thankyou_path do |f| %>
+<%= f.hidden_field :name %>
+<p><%= @contact.name %></p>
+<%= f.hidden_field :email %>
+<p><%= @contact.email %></p>
+<%= f.hidden_field :content %>
+<p><%= @contact.content %></p>
+<%= f.submit "送信" %>
+<% end %>
