@@ -1,0 +1,7 @@
+<h1>お問い合わせ</h1>
+<%= form_for @contact,url:contact_confirm_path do |f| %>
+<%= f.text_field :name %>
+<%= f.text_field :email %>
+<%= f.text_area :content %>
+<%= f.submit "確認" %>
+<% end %>
