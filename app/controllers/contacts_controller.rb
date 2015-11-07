@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
   end
   
   private
-  
+#   追加
   def params_contact
     params.require(:contact).permit(:name,:email,:content,:addres,:number)
   end
