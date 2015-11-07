@@ -1,10 +1,21 @@
-<h1>確認</h1>
+<div class="contact">
+<h1>こちらの内容で送信されますがよろしいでしょうか？</h1>
 <%= form_for @contact,url:contact_thankyou_path do |f| %>
 <%= f.hidden_field :name %>
-<p><%= @contact.name %></p>
+<p><%= @contact.name %></p>  
+  
 <%= f.hidden_field :email %>
 <p><%= @contact.email %></p>
+  
+<%= f.hidden_field :addres %>
+<p><%= @contact.addres %></p>
+  
+  <%= f.hidden_field :number %>
+  <p><%= @contact.number %></p>
+  
 <%= f.hidden_field :content %>
 <p><%= @contact.content %></p>
+  
 <%= f.submit "送信" %>
 <% end %>
+</div>

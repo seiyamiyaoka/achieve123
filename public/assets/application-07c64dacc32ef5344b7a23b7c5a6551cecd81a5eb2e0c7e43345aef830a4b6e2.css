@@ -1,0 +1,182 @@
+/* line 1, /home/nitrous/code/achieve123/app/assets/stylesheets/contacts.scss */
+.contact {
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+/* line 7, /home/nitrous/code/achieve123/app/assets/stylesheets/contacts.scss */
+.confirm-btn {
+  margin-top: 15px;
+}
+
+/* line 10, /home/nitrous/code/achieve123/app/assets/stylesheets/contacts.scss */
+table {
+  border: 1px solid black;
+  height: 250px;
+  width: 450px;
+  /*   padding-left:30px; */
+  background-color: #E8E3DF;
+}
+
+/* line 17, /home/nitrous/code/achieve123/app/assets/stylesheets/contacts.scss */
+th {
+  text-align: left;
+  background-color: #87BBC9;
+}
+
+/* line 22, /home/nitrous/code/achieve123/app/assets/stylesheets/contacts.scss */
+.required-red {
+  padding-left: 20px;
+  color: red;
+}
+
+/* line 26, /home/nitrous/code/achieve123/app/assets/stylesheets/contacts.scss */
+.any-blue {
+  padding-left: 20px;
+  color: blue;
+}
+
+/* line 30, /home/nitrous/code/achieve123/app/assets/stylesheets/contacts.scss */
+td {
+  background-color: #D7F297;
+  padding-left: 60px;
+}
+/* line 1, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 24, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 58, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 69, /home/nitrous/code/achieve123/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/* line 1, /home/nitrous/code/achieve123/app/assets/stylesheets/top.scss */
+body {
+  margin: auto;
+  margin-left: 100px;
+}
+
+/* line 5, /home/nitrous/code/achieve123/app/assets/stylesheets/top.scss */
+.header {
+  height: 50px;
+  width: 1080px;
+  background-color: blue;
+}
+
+/* line 10, /home/nitrous/code/achieve123/app/assets/stylesheets/top.scss */
+.header-left {
+  height: 50px;
+  width: 200px;
+  float: left;
+  margin-left: 30px;
+  background-color: green;
+}
+
+/* line 17, /home/nitrous/code/achieve123/app/assets/stylesheets/top.scss */
+.main {
+  height: 500px;
+  width: 1080px;
+  background-color: pink;
+  float: left;
+}
+
+/* line 27, /home/nitrous/code/achieve123/app/assets/stylesheets/top.scss */
+.footer {
+  margin-top: 10px;
+  border-top: 1px dotted black;
+  width: 1080px;
+  height: 110px;
+  float: left;
+}
+
+/* line 34, /home/nitrous/code/achieve123/app/assets/stylesheets/top.scss */
+.footer-left {
+  margin-left: 300px;
+  float: left;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

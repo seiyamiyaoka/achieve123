@@ -1,3 +1,37 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  margin:auto;
+  margin-left:100px;
+}
+.header{
+  height:50px;
+  width:1080px;
+  background-color:blue;
+}
+.header-left{
+  height:50px;
+  width:200px;
+  float:left;
+  margin-left:30px;
+  background-color:green;
+}
+.main{
+  height:500px;
+  width:1080px;
+  background-color:pink;
+  float:left;
+}
+.main-content
+{
+  
+}
+.footer{
+  margin-top:10px;
+  border-top:1px dotted black;
+  width:1080px;
+  height:110px;
+  float:left;
+}
+.footer-left{
+  margin-left:300px;
+  float:left;
+}

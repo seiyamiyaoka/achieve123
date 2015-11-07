@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="header">
+  <div class="header-left">
+    <h1>achieve123</h1>
+  </div>
+</div>
 <%= yield %>
-<%= link_to"ホーム",root_path %>
+  <div class="footer">
+  <div class="footer-left">
+    <%= link_to "ホーム",root_path%>
+    
+  </div>
+</div>
+
 </body>
 </html>

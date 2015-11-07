@@ -1,3 +1,33 @@
-// Place all the styles related to the contacts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.contact{
+  margin-left:300px;
+    margin-top:50px;
+}
+
+
+.confirm-btn{
+  margin-top:15px;
+}
+table{
+  border:1px solid black;
+  height:250px;
+  width:450px;
+/*   padding-left:30px; */
+  background-color:#E8E3DF;
+}
+th{
+  text-align:left;
+  background-color:#87BBC9;
+  
+}
+.required-red{
+  padding-left:20px;
+  color:red;
+}
+.any-blue{
+  padding-left:20px;
+  color:blue;
+}
+td{
+  background-color:#D7F297;
+  padding-left:60px;
+}
