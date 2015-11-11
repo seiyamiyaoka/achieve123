@@ -2,15 +2,32 @@
   <div class="header-contact">
     <h1>お問い合わせ</h1>
   </div>
+  
   <p>ご質問を受け付けています。お気軽にお問い合わせください。</p>
   <div class="contact-main">
     <div class="contact-left">
+<!--   エラー文章-->
+      <% if @contact.errors.any? %>
+      
+      <button class="btn btn-primary" type="button">
+   <span class="badge"><%= @contact.errors.count %>件正しく入力されていません</span>
+       <!-- ここでeachメソッドを用いて、エラーメッセージを表示させてください。 -->
+       <%  @contact.errors.full_messages.each do |message| %>
+       <li class="errors">
+        <p class="text-left"> <%= message %></p> 
+         
+        </li>
+       <% end %>
+ <% end %>
+      
+      
+      
       <%= form_for @contact,url:contact_confirm_path do |f| %>
-  
+      
+<!--   テーブル     -->
       <table>
         <tr>
           <th>お名前<%= f.label :必須,:class => "required-red" %></th>
-          
           <td><%= f.text_field :name %></td>
         </tr>
         <tr>
@@ -22,7 +39,7 @@
           <td><%= f.text_field :addres %></td>
         </tr>
         <tr>
-          <th>電話番号<%= f.label :任意,:class => "any-blue" %></th>
+          <th>電話番号<%= f.label :任意（ハイフンなし）,:class => "any-blue" %></th>
           <td><%= f.text_field :number %></td>
         </tr>
         <tr>
@@ -31,12 +48,9 @@
         </tr>
       </table>
        <%= f.submit "確認",:class => "confirm-btn" %>
-    <% end %>
+   
     </div>
-    
-    
-    
-    
-    
   </div>
 </div>
+
+<% end %>
