@@ -10,7 +10,7 @@
 <!--   エラー文章-->
       <% if @contact.errors.any? %>
       
-      <button class="btn btn-primary" type="button">
+      
    <span class="badge"><%= @contact.errors.count %>件正しく入力されていません</span>
        <!-- ここでeachメソッドを用いて、エラーメッセージを表示させてください。 -->
        <%  @contact.errors.full_messages.each do |message| %>
