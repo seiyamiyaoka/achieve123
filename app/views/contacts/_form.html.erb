@@ -1,6 +1,4 @@
-
-<h1>こちらの内容で送信されますがよろしいでしょうか？</h1>
-<%= form_for (@contact),url: {action: 'thankyou'} do |f| %>
+<%= form_for @contact,url: contact_thankyou_path do |f| %>
   
 <%= f.hidden_field :name %>
   <%= f.label :名前,:class => "required-blue" %>
