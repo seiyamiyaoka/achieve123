@@ -1,8 +1,14 @@
 class ContactsController < ApplicationController
   def inquiry
-    @contact = Contact.new
+      @contact = Contact.new
+    if params[:back]
+      @contact = Contact.new(params_contact)
+      
+      
+        
+     end
   end
-
+  
   def confirm
     @contact = Contact.new(params_contact)
     if @contact.valid?
@@ -20,12 +26,11 @@ class ContactsController < ApplicationController
   def thankyou
    @contact = Contact.new(params_contact)
     if params[:back]
-      render :inquiry
+       render :inquiry
     elsif @contact.save
-   
+      
     end
   end
- 
   
   private
 #   追加

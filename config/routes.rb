@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :contacts
   
-  get '/contact/inquiry' => 'contacts#inquiry'
+  get '/contact' => 'contacts#inquiry'
+  post '/contact' => 'contacts#inquiry'
   post '/contact/confirm' => 'contacts#confirm'
-  post '/contact' => 'contacts#thankyou'
+  post '/contact/thankyou' => 'contacts#thankyou'
      
   resources :blogs
   # The priority is based upon order of creation: first created -> highest priority.

@@ -23,7 +23,17 @@
 <p><%= @contact.content %></p>
   
 <%= f.submit "送信" %>
+<% end %>
+
+<!--  戻る-->
+<%= form_for (@contact),url: {action: 'inquiry'} do |f| %>
   
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :addres %>
+  <%= f.hidden_field :number %>
+  <%= f.hidden_field :content %>
+
 <%= f.submit "戻る",name: 'back' %>
 
 <% end %>
