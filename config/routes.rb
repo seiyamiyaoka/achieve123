@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   get '/contact' => 'contacts#inquiry'
   post '/contact' => 'contacts#inquiry'
   post '/contact/confirm' => 'contacts#confirm'

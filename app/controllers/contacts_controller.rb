@@ -3,9 +3,6 @@ class ContactsController < ApplicationController
       @contact = Contact.new
     if params[:back]
       @contact = Contact.new(params_contact)
-      
-      
-        
      end
   end
   
