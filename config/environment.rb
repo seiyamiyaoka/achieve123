@@ -6,7 +6,7 @@ Rails.application.initialize!
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
-  :user_name => "ENV[ACTION_MAILER_USERNSME]",
+  :user_name => "ENV[ACTION_MAILER_USERNAME]",
   :password => "ENV[ACTION_MAILER_PASSWORD]" ,
   :domain => "heroku.com",
   :address => "smtp.sendgrid.net",
