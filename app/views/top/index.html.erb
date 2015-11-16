@@ -6,6 +6,16 @@
   </div>
 <div class="box2"> 
    <nav class="menu"> 
+<!--   ログイン    -->
+     <% if user_signed_in? %> 
+<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
+
+     <% else %>
+    <li><%= link_to "Login", new_user_session_path %></li> 
+<% end %>
+     
+     
+     
 <ul> 
 <li><%= link_to "Top", root_path %></li> 
 <li><%= link_to "お問い合わせ",contact_path %></li> 
@@ -52,15 +62,3 @@
       <p>Copyright &copy; 2015 Dive into Code All Rights Reserved.</p> 
     </div>
   </div>
-<!-- <div class="main">
-  <div class="main-content">
-    <p>アチーブです!</p>
-  </div>
-</div>
-<div class="footer">
-  <div class="footer-left">
-   
-    
-  </div>
-</div>
- -->
