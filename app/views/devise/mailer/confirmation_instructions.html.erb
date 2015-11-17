@@ -1,5 +1,16 @@
-<p>Welcome <%= @email %>!</p>
+<p><%= @email %>様</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>この度はDiveintoCodeへの登録をお申し込みいただき誠にありがとうございます。現在はまだ仮登録のの状態です。<br/>
+本登録を完了するためには、以下の認証ボタンを押してください</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to '認証', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>■ご注意<br/>
+  <br/>
+・このメールは、SendGridへの登録をお申込みいただいた方に自動送信<br/>
+　しています。本メールにお心当りがない場合は、誠に恐れ入りますが<br/>
+　弊社サポートまでお問い合せくださいますようお願いいたします。<br/>
+<br/>
+■お問合せ<br/>
+株式会社 DICサポートチーム<br/>
+<%= link_to"000-0000-0000" %><br/>
+</p>
