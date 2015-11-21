@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+ 
+  get'/users/index' => 'users#index'
+  get'/user/show' => 'users#show'
   devise_for :users
   get '/contact' => 'contacts#inquiry'
   post '/contact' => 'contacts#inquiry'

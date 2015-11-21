@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'devise-i18n'
 # ログイン機能
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

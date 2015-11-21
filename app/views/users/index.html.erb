@@ -1,0 +1,38 @@
+<div class ="all_user">
+ <h1>冒険者たち</h1>
+<% @users.each do |user| %>
+  
+    
+    
+  
+  <table class="company">
+	<tbody>
+		<tr>
+			<th class="arrow_box">名前</div></th>
+  <% if user.name == nil %>
+  <td><p>未設定</p></td>
+  <% else %>
+  <td><%= user.name %></td>
+  <% end %>
+		</tr>
+		<tr>
+			<th class="arrow_box">強さ</th>
+			<td>
+        <%= user.id %>
+			</td>
+		</tr>
+		<tr>
+			<th>email</th>
+			<td>
+        <%= user.email %>
+			</td>
+		</tr>
+		
+	</tbody>
+</table>
+  
+  
+  
+
+<% end %>
+</div>
