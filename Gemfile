@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'dotenv-rails'
 gem 'devise-i18n'
 # ログイン機能
 gem 'devise'
@@ -44,4 +45,3 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'dotenv-rails'
