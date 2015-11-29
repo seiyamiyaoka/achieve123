@@ -1,17 +1,17 @@
 <h2><%= @user.name %>さん</h2>
 <div class="middlePage">
 <div class="page-header">
-  <h1 class="logo">マイページ<small></small></h1>
+  <h1 class="logo"><small></small></h1>
 </div>
   <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title"></h3>
   </div>
   <div class="panel-body">
-
+<%= devise_error_messages! %>
   <div class="row">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  
 
 <div class="field">
     <%= f.label :ユーザ名 %><br />
