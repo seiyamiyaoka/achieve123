@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Blogs</h1>
+<h1>冒険の記録</h1>
 
 <table>
   <thead>
@@ -10,16 +9,22 @@
   </thead>
 
   <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+     <% @blogs.each do |blog| %>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= blog.title %></div>
+  <div class="panel-body">
+    <p><%= link_to '詳細', blog %></p>
+</div>
+        <%= link_to '削除', blog, method: :delete, data: { confirm: '冒険の書を削除しますか?' } %>
+      
+  
+
+      
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to '新規作成', new_blog_path %>

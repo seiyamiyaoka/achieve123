@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+gem 'therubyracer', platforms: :ruby
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 gem 'dotenv-rails'
 gem 'devise-i18n'
 # ログイン機能

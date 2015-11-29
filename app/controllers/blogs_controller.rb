@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to @blog, notice: '冒険の書が記録されました.' }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        format.html { redirect_to @blog, notice: '冒険の書が更新されました.' }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
+      format.html { redirect_to blogs_url, notice: '残念ながら冒険の書は消えました。。。.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params[:blog]
+      params.require(:blog).permit(:title,:content)
     end
 end

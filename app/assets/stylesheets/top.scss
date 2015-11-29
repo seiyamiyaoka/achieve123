@@ -1,4 +1,12 @@
-
+.jumbotron {
+    background: #000 url("header.jpg") center center;
+    background-size: cover;
+    h1,p{
+      color:white;
+      text-align: center;
+      margin-top: 20px
+    }
+}
 .boxA:after { 
 content: ""; 
 display: block; 
@@ -149,7 +157,15 @@ text-align:center;
 color: #666666; 
 font-size: 14px 
 }
-
+.navbar navbar-default{
+  margin-bottom:0px;
+}
+strong{
+  color:red;
+}
+.btn{
+  margin-left:500px;
+}
 /* .header{
   height:50px;
   width:1080px;

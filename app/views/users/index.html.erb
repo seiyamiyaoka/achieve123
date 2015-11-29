@@ -9,10 +9,11 @@
 	<tbody>
 		<tr>
 			<th class="arrow_box">名前</div></th>
-  <% if user.name == nil %>
-  <td><p>未設定</p></td>
-  <% else %>
+  <% if user.name %>
   <td><%= user.name %></td>
+  <% else %>
+  
+  <td><p>未設定</p></td>
   <% end %>
 		</tr>
 		<tr>
