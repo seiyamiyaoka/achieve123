@@ -23,6 +23,9 @@
         <% else %>
         <li><%= link_to"新規登録",new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "facebook認証", user_omniauth_authorize_path(:facebook), class: 'navbar-link' %></li>
+        <li><%= link_to "twitter認証", user_omniauth_authorize_path(:twitter), class: 'navbar-link' %></li>
+
         <% end %>
 
 

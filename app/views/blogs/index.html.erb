@@ -1,4 +1,5 @@
 
+
 <h1>冒険の記録</h1>
 
 <table>
@@ -14,13 +15,25 @@
   <!-- Default panel contents -->
   <div class="panel-heading"><%= blog.title %></div>
   <div class="panel-body">
-    <p><%= link_to '詳細', blog %></p>
-</div>
-        <%= link_to '削除', blog, method: :delete, data: { confirm: '冒険の書を削除しますか?' } %>
-      
-  
 
-      
+    <p><em>記録者<%= blog.user.name %></em></p>
+
+
+    
+    <div class="row">
+  <div class="col-xs-6 col-md-3">
+      <div class="thumbnail"> <%= image_for(blog.user) %></div>
+  </div>
+</div>
+    
+    
+    
+</div>
+   <% if current_user.id == blog.user_id %>
+     <p><%= link_to '詳細', blog %></p>
+     <p><%= link_to '削除', blog, method: :delete, data: { confirm: '冒険の書を削除しますか?' } %></p>
+  <% else %>
+  <% end %>
     <% end %>
   </tbody>
 </table>
