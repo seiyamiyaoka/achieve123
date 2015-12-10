@@ -1,5 +1,5 @@
 class AddIndexToUser < ActiveRecord::Migration
   def change
-    add_index :users, [:uid, :provider], unique: true
+#     add_index :users, [:uid, :provider], unique: true
   end
 end
