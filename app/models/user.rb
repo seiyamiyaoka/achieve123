@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
   mount_uploader :image_url
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable # confirmable
@@ -33,7 +34,6 @@ user
                    password: Devise.friendly_token[0,20])
 #     raise user.inspect
 
-       
 end
 user
 
@@ -46,7 +46,7 @@ end
   def self.create_unique_email
 User.create_unique_string + "@example.com"
   end
-  
+
 #   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 #     user = User.where(provider: auth.provider, uid: auth.uid).first
 #     unless user

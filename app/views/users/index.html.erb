@@ -37,11 +37,10 @@
 			<td>
         <% if user.provider == 'facebook' || user.provider == 'twitter' %>
         <%= user.provider %>
-       
+
 <!--     せいやのtwitterプロフィール画像の数字     -->
 <!--  http://pbs.twimg.com/profile_images/632921511133769730/-2WFpZqJ_normal.jpg-->
-        
-       
+
         <% else %>
         <%= user.email %>
         <% end %>

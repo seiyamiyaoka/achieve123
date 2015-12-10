@@ -260,12 +260,20 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   if Rails.env.production?
-# config.omniauth :facebook, "564341010397178", "c77745ed1293bf1f172a143da867983d", :scope => 'email', :display => 'popup', :info_fields => 'name, email'
-# config.omniauth :twitter, "dVjLMc8kGKTrNti2vDld8TMIZ", "jxptOAKTIjEANw4i5q6TI4sXkGCgM9D73YTnwea9PRkBIjRwyI"
-  else
-config.omniauth :facebook, "564341010397178", "c77745ed1293bf1f172a143da867983d", :scope => 'email', :display => 'popup', :info_fields => 'name, email'
+config.omniauth :facebook, "FACEBOOK_PRODUCT_ID", "[FACEBOOK_PRODUCT_PASSWORD]", :scope => 'email', :display => 'popup', :info_fields => 'name, email'
 
-config.omniauth :twitter, "dVjLMc8kGKTrNti2vDld8TMIZ", "jxptOAKTIjEANw4i5q6TI4sXkGCgM9D73YTnwea9PRkBIjRwyI",{
+config.omniauth :twitter, "[TWITTER_PRODUCT_ID]", "[TWITTER_PRODUCT_PASSWORD]",{
+      :secure_image_url => 'true',
+      :image_size => 'original',
+      :authorize_params => {
+        :force_login => 'true',
+        :lang => 'ja'
+      }
+    }
+  else
+config.omniauth :facebook, "FACEBOOK_DEVELOP_ID", "[FACEBOOK_DEVELOP_PASSWORD]", :scope => 'email', :display => 'popup', :info_fields => 'name, email'
+
+config.omniauth :twitter, "[TWITTER_DEVELOP_ID]", "[TWITTER_DEVELOP_PASSWORD]",{
       :secure_image_url => 'true',
       :image_size => 'original',
       :authorize_params => {
