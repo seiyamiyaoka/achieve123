@@ -11,12 +11,9 @@ class ContactsController < ApplicationController
     if @contact.valid?
       render action: 'confirm'
 
-      return
     else
       render action: 'inquiry'
-      return
- 
-    
+
     end
   end
   
