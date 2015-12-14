@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'social_profile/create'=> 'social_profile#create'
+
+
+
   get'/users/index' => 'users#index'
   get'/user/show' => 'users#show'
-
-
+  # authにへんこう
   devise_for :users, controllers: {
+    auth: "/auth/:provider/callback",
+    auth: "/auth/destroy/:provider",
     sessions: "users/sessions",
     registrations: "users/registrations",
 

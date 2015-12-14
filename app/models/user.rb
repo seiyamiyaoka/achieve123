@@ -46,7 +46,9 @@ end
   def self.create_unique_email
 User.create_unique_string + "@example.com"
   end
-
+def social_profile(provider)
+    social_profiles.select{ |sp| sp.provider == provider.to_s }.first
+  end
 #   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 #     user = User.where(provider: auth.provider, uid: auth.uid).first
 #     unless user
