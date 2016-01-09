@@ -6,8 +6,13 @@
 <p>
   <strong>内容:</strong>
   <%= @blog.content %>
+  <%= @blog.likes.count %>人がよいぜといっています
 </p>
+<% if current_user.likes.find_by(blog_id: @blog) %>
+<%= link_to'やっぱやめたー',unlike_path(@blog.id),method: :delete %>
 
-
+<%else%>
+<%= link_to'よいぜ！',like_path(@blog.id),method: :post %>
+<%end%>
 <%= link_to '編集', edit_blog_path(@blog) %> |
 <%= link_to '戻る', blogs_path %>

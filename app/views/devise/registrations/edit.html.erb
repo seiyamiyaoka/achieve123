@@ -10,7 +10,7 @@
   <div class="panel-body">
 
 
-
+    <%= @title%>
 <%= devise_error_messages! %>
   <div class="row">
     <div class="col-xs-6 col-md-3">
@@ -29,12 +29,13 @@
 <!--     画像削除いれたい -->
 
 
-
+      <%= link_to'認証！',provider_path(@user.id),method: :post%>
     <div class="field">
       <%= f.label :プロフィール画像 %><br />
       <%= f.file_field :image_url, autofocus: true %>
 
-
+      <%= @user.likes.count %>件のユーザのブログにいいぜ！をしています
+      <%= @user.like_notes%>
 <!-- providerがfaebookもしくはtwitterのときはメールアドレスフォームを非表示 -->
   </div>
     <% if @user.provider == "facebook" || @user.provider == "twitter"%>
