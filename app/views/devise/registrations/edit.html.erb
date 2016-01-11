@@ -27,9 +27,6 @@
   <%= f.text_field :name, autofocus: true %>
   </div>
 <!--     画像削除いれたい -->
-
-
-      <%= link_to'認証！',provider_path(@user.id),method: :post%>
     <div class="field">
       <%= f.label :プロフィール画像 %><br />
       <%= f.file_field :image_url, autofocus: true %>
