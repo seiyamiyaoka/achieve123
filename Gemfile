@@ -9,6 +9,7 @@ gem 'carrierwave'
 # 画像のサイズ調整
 # ログイン機能
 gem 'rails-erd'
+gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
@@ -54,5 +55,5 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'slack-api'
+
 end
