@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114163105) do
+ActiveRecord::Schema.define(version: 20151218135750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auths", force: :cascade do |t|
+    t.string   "uid"
+    t.string   "provider"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
     t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -32,6 +41,17 @@ ActiveRecord::Schema.define(version: 20151114163105) do
     t.text     "addres"
     t.string   "number"
   end
+
+  create_table "user_auths", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.string   "uid",        null: false
+    t.string   "provider",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_auths", ["uid", "provider"], name: "index_user_auths_on_uid_and_provider", unique: true, using: :btree
+  add_index "user_auths", ["user_id"], name: "index_user_auths_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,9 +70,15 @@ ActiveRecord::Schema.define(version: 20151114163105) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "uid",                    default: "", null: false
+    t.string   "provider",               default: "", null: false
+    t.string   "image_url"
+    t.string   "profile_image_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
 end

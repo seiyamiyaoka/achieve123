@@ -10,13 +10,10 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params_contact)
     if @contact.valid?
       render action: 'confirm'
-      
-      return
+
     else
       render action: 'inquiry'
-      return
- 
-    
+
     end
   end
   

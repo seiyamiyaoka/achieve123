@@ -26,7 +26,7 @@
 <% end %>
 
 <!--  戻る-->
-<%= form_for (@contact),url: {action: 'inquiry'} do |f| %>
+<%= form_for (@contact),url:contact_path do |f| %>
   
   <%= f.hidden_field :name %>
   <%= f.hidden_field :email %>

@@ -1,29 +1,74 @@
-<h2>Sign up</h2>
+<div class="middlePage">
+<div class="page-header">
+  <h1 class="logo">ボウケンシャトウロク <small>ようこそ!</small></h1>
+</div>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">ユーザ登録！</h3>
   </div>
+  <div class="panel-body">
+
+  <div class="row">
+
+<!-- <div class="col-md-5" >
+<a href="#"><img src="http://techulus.com/buttons/fb.png" /></a><br/>
+<a href="#"><img src="http://techulus.com/buttons/tw.png" /></a><br/>
+<a href="#"><img src="http://techulus.com/buttons/gplus.png" /></a>
+</div>
+ -->
+
+<!--  入力フォーム-->
+   
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+  
+  
+  
+  <!--  パスワード -->
+  <div class="field">
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
+  <!--  再確認パスワード -->
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :再確認パスワード %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+<div class="actions">
+    <%= f.submit "新規登録！" %>
   </div>
-<% end %>
 
+
+</fieldset>
+</form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+  
+<% end %>
+  </div>
 <%= render "devise/shared/links" %>
+
