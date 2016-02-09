@@ -4,6 +4,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'dotenv-rails'
 gem 'devise-i18n'
+gem 'rmagick', require: 'RMagick'
 # 画像アップロード
 gem 'carrierwave'
 # 画像のサイズ調整
