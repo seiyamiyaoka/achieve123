@@ -11,7 +11,10 @@
   <div class="panel-body">
 
 
-
+    <%= @mail.from %>
+    <%= @mail.subject %>
+    <%= @mail.date %>
+    <%= @mail.body %>
 <%= devise_error_messages! %>
   <div class="row">
     <div class="">
@@ -27,16 +30,9 @@
     <%= f.label :ユーザ名 %><br />
   <%= f.text_field :name, autofocus: true %>
   </div>
-<!--     画像削除いれたい -->
-
-
-
     <div class="field">
       <%= f.label :プロフィール画像 %><br />
       <%= f.file_field :image_url, autofocus: true %>
-
-
-<!-- providerがfaebookもしくはtwitterのときはメールアドレスフォームを非表示 -->
   </div>
     <% if @user.provider == "facebook" || @user.provider == "twitter"%>
     <% else %>
@@ -45,22 +41,11 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
     <% end %>
-<!--  facebook認証-->
-
     <%= f.submit "更新" %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
-<!--  パスワード再設定のコード削除 -->
-<!--  現在のパスワードはいれないので削除-->
-<!-- <div class="field">
-    #f.label :現在のパスワード %> <i>(確認で現在のパスワードを入力してください)</i><br />
-     #f.password_field :current_password, autocomplete: "off" %>
-  </div> -->
-
-
 <% end %>
 
 <h3>登録解除</h3>

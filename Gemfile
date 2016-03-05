@@ -58,3 +58,7 @@ group :development, :test do
   gem 'spring'
 
 end
+gem 'faker'
+gem 'rspec-rails'
+gem 'pry-rails'
+gem 'google-api-client', '0.9'

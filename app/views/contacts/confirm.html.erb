@@ -1,11 +1,11 @@
 
 <h1>こちらの内容で送信されますがよろしいでしょうか？</h1>
 <%= form_for (@contact),url: {action: 'thankyou'} do |f| %>
-  
+
 <%= f.hidden_field :name %>
   <%= f.label :名前,:class => "required-blue" %>
-<p><%= @contact.name %></p>  
-  
+<p><%= @contact.name %></p>
+
   <%= f.label :メールアドレス,:class => "required-blue" %>
 <%= f.hidden_field :email %>
 <p><%= @contact.email %></p>
@@ -17,17 +17,17 @@
   <%= f.label :電話番号,:class => "required-blue" %>
   <%= f.hidden_field :number %>
   <p><%= @contact.number %></p>
-  
+
   <%= f.label :お問い合わせ内容,:class => "required-blue" %>
 <%= f.hidden_field :content %>
 <p><%= @contact.content %></p>
-  
+
 <%= f.submit "送信" %>
 <% end %>
 
 <!--  戻る-->
 <%= form_for (@contact),url:contact_path do |f| %>
-  
+
   <%= f.hidden_field :name %>
   <%= f.hidden_field :email %>
   <%= f.hidden_field :addres %>

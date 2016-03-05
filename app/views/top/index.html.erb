@@ -24,7 +24,7 @@
         <li><%= link_to"新規登録",new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
 <!--  認証削除        -->
-        
+
 
         <% end %>
 
@@ -41,9 +41,9 @@
 
 <!--       "ユーザやめる",edit_user_registration_path,method: :delete %></li> -->
      <% else %>
-    
+
 <% end %>
-          
+
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -52,60 +52,60 @@
 
 
 
-<div class="boxA">  
+<div class="boxA">
 
-　<div class="box1"> 
-   <div class="site"> 
-     
-   </div> 
+　<div class="box1">
+   <div class="site">
+
+   </div>
   </div>
-
+<i class="fa fa-facebook fa-4x"></i>
   <div class="jumbotron">
     <h1><strong>a</strong>chieve</h1>
   <p>「経験ゼロからWebエンジニアになる！」</p>
   <p>achieveは、目標達成を支援するWebアプリケーションです。</p>
     <% if user_signed_in? %>
-  
+
     <% else %>
-    
+
     <div class="btn btn-primary btn-large">    <a href="#" class=""><i class="icon-white icon-hand-right"></i>
       <p><%= link_to"今すぐ始める！",new_user_registration_path %></p></div>
     <% end %>
 </div>
 
-  <div class="box4"> 
-      <div class="box4-1"> 
-          <div class="merit"> 
-            
-            <a href="#"> 
+  <div class="box4">
+      <div class="box4-1">
+          <div class="merit">
+
+            <a href="#">
               <i class="fa fa-heart"></i>
-            <h1>経験ゼロの初心者向け</h1> 
-            <p>全10回講座の課題解決型プログラム。経験ゼロからWebエンジニアになっていただきます。</p> 
+            <h1>経験ゼロの初心者向け</h1>
+            <p>全10回講座の課題解決型プログラム。経験ゼロからWebエンジニアになっていただきます。</p>
               </a>
-            </div> 
-      </div> 
-      <div class="box4-2"> 
-          <div class="merit"> 
-            <a href="#"> 
+            </div>
+      </div>
+      <div class="box4-2">
+          <div class="merit">
+            <a href="#">
              <i class="fa fa-television"></i>
-            <h1>オンラインサポート付き</h1> 
+            <h1>オンラインサポート付き</h1>
             <p>専用のfacebookグループ内やNitrousのコラボレーション機能を経由して随時オンラインサポート</p>
               </a>
             </div>
-      </div> 
-      <div class="box4-3"> 
-      <div class="merit"> 
-        
-        <a href="#"> 
+      </div>
+      <div class="box4-3">
+      <div class="merit">
+
+        <a href="#">
           <i class="fa fa-connectdevelop"></i>
-          <h1>チームで実践「受託開発」</h1> 
-          <p>ひとりではなく開発チームを結成し、実ビジネスの受託開発を経験して卒業していただきます。</p> 
+          <h1>チームで実践「受託開発」</h1>
+          <p>ひとりではなく開発チームを結成し、実ビジネスの受託開発を経験して卒業していただきます。</p>
           </a>
           </div>
-      </div> 
+      </div>
   </div>
-  <div class="box5"> 
-    <div class="copyright"> 
-      <p>Copyright &copy; 2015 Dive into Code All Rights Reserved.</p> 
+  <div class="box5">
+    <div class="copyright">
+      <p>Copyright &copy; 2015 Dive into Code All Rights Reserved.</p>
     </div>
   </div>

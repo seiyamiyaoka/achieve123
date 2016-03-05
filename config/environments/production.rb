@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   #bluemixのときとherokuのとき使い分ける
 #   config.action_mailer.default_url_options = { host: 'ahieve123.mybluemix.net' }
-config.action_mailer.default_url_options = { host: 'lit-woodland-2929.herokuapp.com' }
+config.action_mailer.default_url_options = { host: 'tranquil-chamber-40956.herokuapp.com/' }
 end

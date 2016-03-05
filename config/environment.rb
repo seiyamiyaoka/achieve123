@@ -14,6 +14,14 @@ ActionMailer::Base.smtp_settings =
   :authentication => :plain,
   :enable_starttls_auto => true
 }
+# -*- coding: utf-8 -*-
+Mail.defaults do
+  retriever_method :pop3, :address    => "pop.gmail.com",
+                          :port       => 995,
+                          :user_name  => 'seiyamiyaoka@gmail.com',
+                          :password   => 'jennrhnbmdluzigv',
+                          :enable_ssl => true
+end
 # {
 #   :user_name => "app43545507@heroku.com",
 #   :password => "ghny1a5d2306",

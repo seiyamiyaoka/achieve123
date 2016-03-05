@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   # authにへんこう
   devise_for :users, controllers: {
     auth: "/auth/:provider/callback",
-    auth: "/auth/destroy/:provider",
     sessions: "users/sessions",
     registrations: "users/registrations",
 
@@ -26,5 +25,5 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'top#index'
-
+   match "*path" => "application#handle_404", via: :all
 end

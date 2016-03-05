@@ -7,128 +7,128 @@
       margin-top: 20px
     }
 }
-.boxA:after { 
-content: ""; 
-display: block; 
-clear: both 
-} 
-
-.box1 { 
-float: left; 
-width: auto 
-} 
-
-.box2 { 
-float: right; 
-width: auto 
-}
-/* サイト名 */ 
-.site h1 a { 
-color: white; 
-text-decoration: none 
-} 
-
-.site h1 { 
-margin: 0; 
-font-size: 30px 
-}
-/* ナビゲーション */ 
-.menu ul { 
-margin: 0; 
-padding: 0; 
-list-style: none 
+.boxA:after {
+content: "";
+display: block;
+clear: both
 }
 
-.menu li a { 
-display: block; 
-padding: 10px 15px; 
-color: white; 
-font-size: 14px; 
-text-decoration: none 
-} 
-.menu li a:hover { 
-background-color: #eeeeee 
+.box1 {
+float: left;
+width: auto
 }
-.menu ul:after { 
-content: ""; 
-display: block; 
-clear: both 
-} 
-.menu li { 
-float: left; 
-width: auto 
-}
-/* ヘッダー画像 */ 
-.topimg { 
-width: 100%; 
-max-height: 300px; 
-vertical-align: bottom 
-}
-.box5 { 
-padding-top: 10px; 
-padding-bottom: 10px; 
-background-color: #dddddd 
-}
-.boxA { 
-padding-top: 20px; 
-padding-bottom: 10px; 
-background-color: black 
-}
-.box4 { 
-background-color: #e8e8c4 
-} 
 
-.box4:after { 
-content: ""; 
-display: block; 
-clear: both 
+.box2 {
+float: right;
+width: auto
 }
-.box4-1 { 
-float: left; 
-width: 32%; 
-margin-right: 2% 
-} 
-.box4-2 { 
-float: left; 
-width: 32%; 
-margin-right: 2% 
-} 
-.box4-3 { 
-float: left; 
-width: 32%; 
+/* サイト名 */
+.site h1 a {
+color: white;
+text-decoration: none
 }
-.merit h1 { 
-margin-top: 0; 
-margin-bottom: 0; 
-font-size: 24px 
-} 
-.merit p { 
-margin-top: 0; 
-margin-bottom: 0 
+
+.site h1 {
+margin: 0;
+font-size: 30px
 }
-.merit a { 
-display: block; 
-background-color: #222222; 
-color: #ffffff; 
-text-align: center; 
-text-decoration: none 
+/* ナビゲーション */
+.menu ul {
+margin: 0;
+padding: 0;
+list-style: none
 }
-.merit a:hover { 
-opacity: 0.8 
+
+.menu li a {
+display: block;
+padding: 10px 15px;
+color: white;
+font-size: 14px;
+text-decoration: none
 }
-/* 左右に隙間を入れる */ 
-.boxA, .box4, .box5 { 
-padding-left: 15px; 
-padding-right: 15px 
+.menu li a:hover {
+background-color: #eeeeee
 }
-.merit i { 
-display: block; 
-padding-top: 40px; 
-padding-bottom: 40px; 
-font-size: 38px 
+.menu ul:after {
+content: "";
+display: block;
+clear: both
 }
-.merit .fa-heart { 
-background-color: #E8373E 
+.menu li {
+float: left;
+width: auto
+}
+/* ヘッダー画像 */
+.topimg {
+width: 100%;
+max-height: 300px;
+vertical-align: bottom
+}
+.box5 {
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: #dddddd
+}
+.boxA {
+padding-top: 20px;
+padding-bottom: 10px;
+background-color: black
+}
+.box4 {
+background-color: #e8e8c4
+}
+
+.box4:after {
+content: "";
+display: block;
+clear: both
+}
+.box4-1 {
+float: left;
+width: 32%;
+margin-right: 2%
+}
+.box4-2 {
+float: left;
+width: 32%;
+margin-right: 2%
+}
+.box4-3 {
+float: left;
+width: 32%;
+}
+.merit h1 {
+margin-top: 0;
+margin-bottom: 0;
+font-size: 24px
+}
+.merit p {
+margin-top: 0;
+margin-bottom: 0
+}
+.merit a {
+display: block;
+background-color: #222222;
+color: #ffffff;
+text-align: center;
+text-decoration: none
+}
+.merit a:hover {
+opacity: 0.8
+}
+/* 左右に隙間を入れる */
+.boxA, .box4, .box5 {
+padding-left: 15px;
+padding-right: 15px
+}
+.merit i {
+display: block;
+padding-top: 40px;
+padding-bottom: 40px;
+font-size: 38px
+}
+.merit .fa-heart {
+background-color: #E8373E
 }
 .merit .fa-television {
 background-color: #83A300
@@ -166,6 +166,7 @@ strong{
 .btn{
   margin-left:500px;
 }
+
 /* .header{
   height:50px;
   width:1080px;
