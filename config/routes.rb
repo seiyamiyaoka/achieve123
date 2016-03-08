@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'social_profile/create'=> 'social_profile#create'
+
+
+
   get'/users/index' => 'users#index'
   get'/user/show' => 'users#show'
   # authにへんこう

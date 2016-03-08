@@ -62,7 +62,3 @@ gem 'faker'
 gem 'rspec-rails'
 gem 'pry-rails'
 gem 'google-api-client', '0.9'
-gem 'ruby-gmail'
-gem "omniauth-google-oauth2"
-gem 'gmaps4rails'
-gem 'underscore-rails'
