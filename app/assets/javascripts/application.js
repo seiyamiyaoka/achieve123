@@ -15,8 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-
-
-$(function(){
-  $('.logo').fadeIn();
-});
+//= require underscore
+//= require gmaps/google
