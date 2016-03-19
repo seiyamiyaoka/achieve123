@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :answers
+  resources :questions do
+    resources :answers
+  end
+  resources :comments
   get 'social_profile/create'=> 'social_profile#create'
 
 
@@ -19,7 +24,9 @@ Rails.application.routes.draw do
   post '/contact/confirm' => 'contacts#confirm'
   post '/contact/thankyou' => 'contacts#thankyou'
 
-  resources :blogs
+  resources :blogs do
+    resources :comments
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -26,10 +26,10 @@
 </div>
 
 
-
+  <p><%= link_to '詳細', blog %></p>
 </div>
    <% if current_user.id == blog.user_id %>
-     <p><%= link_to '詳細', blog %></p>
+
      <p><%= link_to '削除', blog, method: :delete, data: { confirm: '冒険の書を削除しますか?' } %></p>
   <% else %>
   <% end %>

@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:edit, :update, :destroy,:show]
-  before_action :authenticate_user!
+  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   # GET /blogs
   # GET /blogs.json
   def index
@@ -15,6 +15,9 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
+    @comments = @blog.comments.build
+    @comment = @blog.comments
+    #binding.pry
   end
 
   # GET /blogs/new

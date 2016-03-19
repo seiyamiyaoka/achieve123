@@ -8,6 +8,15 @@
   <%= @blog.content %>
 </p>
 
+<p>
+  <div id="comment_area">
+    <%= render partial:'comments/index',locals: {comments: @comment} %>
+  </div>
+
+</p>
+<p>
+  <%= render partial:'comments/form',locals: {comment: @comments} %>
+</p>
 
 <%= link_to '編集', edit_blog_path(@blog) %> |
 <%= link_to '戻る', blogs_path %>
