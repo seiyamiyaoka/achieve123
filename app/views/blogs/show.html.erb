@@ -15,8 +15,8 @@
 
 </p>
 <p>
-  <%= render partial:'comments/form',locals: {comment: @comments} %>
+  <%= render partial:'comments/form',locals: {comment: @comments, } %>
 </p>
-
+<% @ttt = <div class ="ttt"></div> %>
 <%= link_to '編集', edit_blog_path(@blog) %> |
 <%= link_to '戻る', blogs_path %>

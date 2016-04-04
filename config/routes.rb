@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
 
+  resources :tasks
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :answers
   resources :questions do
     resources :answers
   end
   resources :comments
   get 'social_profile/create'=> 'social_profile#create'
+
+  namespace :taskline do
+    resources :tasks do
+      resources :task_comment
+      get "ungoodjob"
+      get "goodjob"
+    end
+  end
 
 
 
@@ -32,5 +42,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'top#index'
+   resources :users, only: [:index, :show, :edit, :update] do
+     resources :tasks
+     member do
+       get :following, :followers
+     end
+   end
+
+   resources :relationships, only: [:create, :destroy]
+
    match "*path" => "application#handle_404", via: :all
 end
