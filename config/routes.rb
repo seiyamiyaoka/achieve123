@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  post '/callback' => 'webhook#callback'
+  
+  namespace :taskline do
+    resources :task_comments
+  end
+  get 'products/index'
 
   resources :tasks
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -6,11 +12,8 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
-  resources :comments
-  get 'social_profile/create'=> 'social_profile#create'
-
   namespace :taskline do
-    resources :tasks do
+      resources :tasks do
       resources :task_comment
       get "ungoodjob"
       get "goodjob"
@@ -26,7 +29,6 @@ Rails.application.routes.draw do
     auth: "/auth/:provider/callback",
     sessions: "users/sessions",
     registrations: "users/registrations",
-
     omniauth_callbacks: "users/omniauth_callbacks"
 }
   get '/contact' => 'contacts#inquiry'
@@ -37,15 +39,26 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :comments
   end
+
+  resources 'products', only: :index
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
    root 'top#index'
+
    resources :users, only: [:index, :show, :edit, :update] do
      resources :tasks
      member do
        get :following, :followers
+     end
+     resources :submit_requests, shallow: true do
+       get 'approve'
+       get 'unapprove'
+       get 'reject'
+       collection do
+         get 'inbox'
+       end
      end
    end
 

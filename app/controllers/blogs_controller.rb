@@ -15,8 +15,8 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
-    @comments = @blog.comments.build
-    @comment = @blog.comments
+    @comment = @blog.comments.build
+    @comments = @blog.comments
     #binding.pry
   end
 

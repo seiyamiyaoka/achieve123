@@ -58,10 +58,10 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to blog_path(@comment.blog), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
-      @blog.comments
-      format.js {render :index,notice: 'ブログが削除されました。'}
+      @blog = @comment.blog
+      format.js {render :index, notice: 'ブログが削除されました。'}
     end
   end
 

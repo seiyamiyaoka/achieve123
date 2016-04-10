@@ -1,56 +1,59 @@
-<div class="contact">
-  <div class="page-header">
-  <h1 class="logo">お問い合わせ<small></small></h1>
-</div>
-  
-  <div class="contact-main">
-    <p>ご質問を受け付けています。お気軽にお問い合わせください。</p>
-    <div class="contact-left">
-<!--   エラー文章-->
-      <% if @contact.errors.any? %>
-      
-      
-   <span class="badge"><%= @contact.errors.count %>件正しく入力されていません</span>
-       <!-- ここでeachメソッドを用いて、エラーメッセージを表示させてください。 -->
-       <%  @contact.errors.full_messages.each do |message| %>
-       <li class="errors">
-        <p class="text-left"> <%= message %></p> 
-         
-        </li>
-       <% end %>
- <% end %>
-      
-      
-      
-      <%= form_for @contact,url:contact_confirm_path do |f| %>
-      
-<!--   テーブル     -->
-      <table>
-        <tr>
-          <th>お名前<%= f.label :必須,:class => "required-red" %></th>
-          <td><%= f.text_field :name %></td>
-        </tr>
-        <tr>
-          <th>メールアドレス<%= f.label :必須,:class => "required-red" %></th>
-          <td><%= f.text_field :email %></td>
-        </tr>
-        <tr>
-          <th>住所<%= f.label :任意,:class => "any-blue" %></th>
-          <td><%= f.text_field :addres %></td>
-        </tr>
-        <tr>
-          <th>電話番号<%= f.label :任意（ハイフンなし）,:class => "any-blue" %></th>
-          <td><%= f.text_field :number %></td>
-        </tr>
-        <tr>
-          <th>お問い合わせ内容<%= f.label :必須,:class => "required-red" %></th>
-          <td><%= f.text_area :content %></td>
-        </tr>
-      </table>
-       <%= f.submit "確認",:class => "confirm-btn" %>
-   
-    </div>
+<div class="container-fluid">
+  <div class="contact">
+    <div class="page-header">
+
+        <div class="row">
+          <div class="col-lg-4 col-xs-1 col-sm-3"></div>
+            <div class="col-lg-4 col-xs-10 col-sm-6">
+              <div class="contact-main">
+                <h1 class="logo">お問い合わせ<small></small></h1>
+                <p>ご質問を受け付けています。お気軽にお問い合わせください。</p>
+                <div class="contact-left">
+            <!--   エラー文章-->
+                  <% if @contact.errors.any? %>
+               <span class="badge"><%= @contact.errors.count %>件正しく入力されていません</span>
+                   <!-- ここでeachメソッドを用いて、エラーメッセージを表示させてください。 -->
+                   <%  @contact.errors.full_messages.each do |message| %>
+                   <li class="errors">
+                    <p class="text-left"> <%= message %></p>
+
+                    </li>
+                   <% end %>
+             <% end %>
+                  <%= form_for @contact,url:contact_confirm_path do |f| %>
+
+            <!--   テーブル     -->
+                  <table>
+                    <tr>
+                      <th>お名前<%= f.label :必須,:class => "required-red" %></th>
+                      <td><%= f.text_field :name %></td>
+                    </tr>
+                    <tr>
+                      <th>メールアドレス<%= f.label :必須,:class => "required-red" %></th>
+                      <td><%= f.text_field :email %></td>
+                    </tr>
+                    <tr>
+                      <th>住所<%= f.label :任意,:class => "any-blue" %></th>
+                      <td><%= f.text_field :addres %></td>
+                    </tr>
+                    <tr>
+                      <th>電話番号<%= f.label :任意（ハイフンなし）,:class => "any-blue" %></th>
+                      <td><%= f.text_field :number %></td>
+                    </tr>
+                    <tr>
+                      <th>お問い合わせ内容<%= f.label :必須,:class => "required-red" %></th>
+                      <td><%= f.text_area :content %></td>
+                    </tr>
+                  </table>
+                   <%= f.submit "確認",:class => "confirm-btn" %>
+
+                </div>
+              </div>
+            </div>
+
+            <% end %>
+            </div>
+          <div class="col-lg-4 col-xs-1 col-sm-3"></div>
+        </div>
   </div>
 </div>
-
-<% end %>
