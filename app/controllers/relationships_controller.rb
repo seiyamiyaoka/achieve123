@@ -1,13 +1,14 @@
 class RelationshipsController < ApplicationController
+  respond_to :html, :js
   def create
     @user = User.find(params[:relationship][:followed_id])
     current_user.follow!(@user)
-    redirect_to '/users/index'
+    respond_with @user
   end
 
   def destroy
     @user = User.find(params[:relationship][:followed_id])
     current_user.unfollow!(@user)
-    redirect_to '/users/index'
+    respond_with @user
   end
 end

@@ -13,13 +13,14 @@ class User < ActiveRecord::Base
 
 
   has_many :tasks, dependent: :destroy
+  has_many :task_comments, dependent: :destroy
 
   mount_uploader :image_url
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable # confirmable
 
-  has_many :blogs,:dependent => :destroy
+  has_many :blogs, :dependent => :destroy
 
   has_many :comments
 
@@ -81,9 +82,10 @@ SecureRandom.uuid
 end
 
   def self.create_unique_email
-User.create_unique_string + "@example.com"
+    User.create_unique_string + "@example.com"
   end
-def social_profile(provider)
+
+  def social_profile(provider)
     social_profiles.select{ |sp| sp.provider == provider.to_s }.first
   end
 
@@ -107,7 +109,7 @@ def social_profile(provider)
 
   def taskfeed
     tasks = Task.where(user_id: self)
-    Task.from_users_followed_by(self).order(update_at: :desc)
+    Task.from_users_followed_by(self).order(updated_at: :desc)
   end
   # フォローし合っているユーザ一覧を取得
 end

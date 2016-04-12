@@ -1,0 +1,14 @@
+  <tbody>
+    <% task_comments.each do |taskline_task_comment| %>
+      <tr>
+        <% unless taskline_task_comment.id.nil? %>
+          <td><%= taskline_task_comment.user.name %></td>
+          <td><%= taskline_task_comment.task %></td>
+          <td><%= taskline_task_comment.content %></td>
+          <td><%= link_to 'Show', taskline_task_comment_path(taskline_task_comment) %></td>
+          <td><%= link_to 'Edit', edit_taskline_task_comment_path(taskline_task_comment.task_id, taskline_task_comment) %></td>
+          <td><%= link_to 'Destroy', taskline_task_comment_path(taskline_task_comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>

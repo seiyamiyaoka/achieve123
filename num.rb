@@ -1,5 +1,11 @@
-bun = {"name1" => "seiya"}
-strs = ["ff", "ggg", "gh"]
-puts bun[0]
-puts strs[1]
-puts bun[:name1]
+
+class Ruler
+  attr_accessor :length
+
+  def display
+    puts length
+  end
+end
+ruler = Ruler.new
+ruler.length = 30
+puts ruler.display
