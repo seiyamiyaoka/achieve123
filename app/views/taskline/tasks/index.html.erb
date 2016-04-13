@@ -1,10 +1,9 @@
+<%= page_entries_info @feed_tasks %>
 <% if @feed_tasks.any? %>
   <% @feed_tasks.each do |feedtask| %>
-
     <div id= "feedtask_<%= feedtask.id %>">
       <%= render partial: 'taskline/task_comments/index', locals: { task_comments: feedtask.task_comments } %>
     </div>
-
         <div>
           <tr class="feedtask_list">
             <%= feedtask.title %>
@@ -16,6 +15,10 @@
 
         <%= render partial: 'taskline/task_comments/form', locals: { task_comment: feedtask.task_comments.build }%>
 
+        <div id="goodjob_<%= feedtask.id %>">
+          <%= render partial: 'taskline/tasks/gjbcount', locals: { gjb_count: feedtask.goodjobs.sum(:number) } %>
+        </div>
         <%= render partial: 'taskline/tasks/goodjob', locals: { goodjob: feedtask.goodjobs.build } %>
   　<% end %>
 <% end %>
+<%= paginate @feed_tasks %>

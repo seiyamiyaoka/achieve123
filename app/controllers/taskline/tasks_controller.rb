@@ -12,14 +12,13 @@ class Taskline::TasksController < ApplicationController
       @gjb.update(user_id: current_user.id)
     end
       @gjb_all_cnt = Goodjob.where(task_id: goodjob_params[:task_id]).sum(:number)
-      redirect_to taskline_tasks_path
-    # respond_to do |format|
-    #   format.js
-    # end
+      respond_to do |format|
+        format.js
+      end
   end
 
   def index
-    @feed_tasks = current_user.taskfeed
+    @feed_tasks = current_user.taskfeed.page(params[:page])
     @taskcomment = TaskComment.new
     @goodjob = Goodjob.new
   end
