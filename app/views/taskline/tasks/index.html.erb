@@ -1,0 +1,17 @@
+<% if @feed_tasks.any? %>
+  <div id= "feedtask">
+      <% @feed_tasks.each do |feedtask| %>
+        <div>
+          <tr class="feedtask_list">
+            <%= feedtask.title %>
+            <%= feedtask.content %>
+            <%= feedtask.user.name %>
+          </tr>
+        </div>
+        <div id="goodjob_<%= feedtask.id %>">
+          <%= feedtask.goodjobs.count %>
+        </div>
+        <%= render partial: 'taskline/tasks/goodjob', locals: { feedtask: feedtask } %>
+      <% end %>
+  </div>
+<% end %>

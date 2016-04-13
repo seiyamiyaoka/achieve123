@@ -15,8 +15,8 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
-    @comments = @blog.comments.build
-    @comment = @blog.comments
+    @comment = @blog.comments.build
+    @comments = @blog.comments
     #binding.pry
   end
 
@@ -36,6 +36,7 @@ class BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: '冒険の書が記録されました.' }
+
         format.json { render :show, status: :created, location: @blog }
 #           Slack.chat_postMessage(text: 'エクスペクトパッパローナ', username: 'noro', channel: '#random',icon_url:'http://diveintocode.jp/images/noro_pic.png')
       else

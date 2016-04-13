@@ -272,7 +272,7 @@ config.omniauth :twitter, ENV['TWITTER_PRODUCT_ID'], ENV['TWITTER_PRODUCT_PASSWO
     }
   else
 config.omniauth :facebook, ENV['FACEBOOK_DEVELOP_ID'], ENV['FACEBOOK_DEVELOP_PASSWORD'], :scope => 'email', :display => 'popup', :info_fields => 'name, email'
-
+config.omniauth :line,  "1463270382", "9f06e3eddae591f99e2898d256af412d"
 config.omniauth :twitter, ENV['TWITTER_DEVELOP_ID'], ENV['TWITTER_DEVELOP_PASSWORD'],{
       :secure_image_url => 'true',
       :image_size => 'original',

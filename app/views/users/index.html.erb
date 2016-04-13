@@ -1,19 +1,9 @@
 <div class ="all_user">
  <h1>冒険者たち</h1>
-  <%= link_to"認証",social_profile_create_path %>
 <% @users.each do |user| %>
-<!-- <div class="row">
-  <div class="col-xs-6 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="..." alt="...">
-    </a>
-  </div>
-  ...
-</div> -->
 <div class="row">
   <div class="">
     <div class="thumbnail"><%= image_for(user) %></div>
-
   </div>
 </div>
   <table class="company">
@@ -23,7 +13,6 @@
   <% if user.name %>
   <td><%= user.name %></td>
   <% else %>
-
   <td><p>未設定</p></td>
   <% end %>
 		</tr>
@@ -38,13 +27,12 @@
 			<td>
         <% if user.provider == 'facebook' || user.provider == 'twitter' %>
         <%= user.provider %>
-
 <!--     せいやのtwitterプロフィール画像の数字     -->
 <!--  http://pbs.twimg.com/profile_images/632921511133769730/-2WFpZqJ_normal.jpg-->
-
         <% else %>
         <%= user.email %>
         <% end %>
+        <%= render partial: 'user', locals: { user: user } %>
 			</td>
 		</tr>
 	</tbody>
