@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406080506) do
+ActiveRecord::Schema.define(version: 20160506092221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,27 @@ ActiveRecord::Schema.define(version: 20160406080506) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
+  create_table "sales", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "submits", force: :cascade do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.integer  "charge_id",  null: false
+    t.integer  "status"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "submits", ["task_id"], name: "index_submits_on_task_id", using: :btree
+  add_index "submits", ["user_id"], name: "index_submits_on_user_id", using: :btree
+
   create_table "task_comments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "task_id"
@@ -188,6 +209,8 @@ ActiveRecord::Schema.define(version: 20160406080506) do
   add_foreign_key "goodjobs", "tasks"
   add_foreign_key "goodjobs", "users"
   add_foreign_key "products", "manufactures"
+  add_foreign_key "submits", "tasks"
+  add_foreign_key "submits", "users"
   add_foreign_key "task_comments", "tasks"
   add_foreign_key "task_comments", "users"
   add_foreign_key "tasks", "users"

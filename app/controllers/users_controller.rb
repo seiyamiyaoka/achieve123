@@ -1,29 +1,32 @@
 class UsersController < ApplicationController
-  before_action only:[:show, :followed, :followers]
+  before_action only: [:show, :following, :followers]
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 
-  def followed
-    @users = @user.follwed_users
+  def following
+    @user = User.find(params[:id])
+    @users = @user.followed_users
     render 'show_follow'
   end
 
   def followers
-    @users = @user.follwers_users
+    @user = User.find(params[:id])
+    @users = @user.followers
     render 'show_follow'
   end
 
   private
-    def user_params
-      params.require(:user).permit(:name, :description, :image_url)
-    end
 
-    def set_user
-      @user = User.find_by(params[:id])
-    end
+  def user_params
+    params.require(:user).permit(:name, :description, :image_url)
+  end
+
+  def set_user
+    @user = User.find_by(params[:id])
+  end
 end

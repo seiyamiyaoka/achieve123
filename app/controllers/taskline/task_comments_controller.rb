@@ -24,13 +24,12 @@ class Taskline::TaskCommentsController < ApplicationController
   # POST /taskline/task_comments
   # POST /taskline/task_comments.json
   def create
-    @taskline_task_comment = TaskComment.new(taskline_task_comment_params)
-
+    @taskline_task_comment = current_user.task_comments.build(taskline_task_comment_params)
     respond_to do |format|
       if @taskline_task_comment.save
-         @task = @taskline_task_comment.task
-         @feed_tasks = current_user.taskfeed
-        format.html { redirect_to @taskline_task_comment, notice: 'Task comment was successfully created.' }
+        @task = @taskline_task_comment.task
+        @feed_tasks = current_user.taskfeed
+        format.html { redirect_to taskline_tasks_path, notice: 'Task comment was successfully created.' }
         format.json { render :show, status: :created, location: @taskline_task_comment }
         format.js { render :index, notice: 'タスクへのコメントが登録されました' }
       else
@@ -45,7 +44,7 @@ class Taskline::TaskCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @taskline_task_comment.update(taskline_task_comment_params)
-        format.html { redirect_to @taskline_task_comment, notice: 'Task comment was successfully updated.' }
+        format.html { redirect_to taskline_tasks_path, notice: 'Task comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @taskline_task_comment }
       else
         format.html { render :edit }
@@ -60,20 +59,21 @@ class Taskline::TaskCommentsController < ApplicationController
     @taskline_task_comment.destroy
     @task = @taskline_task_comment.task
     respond_to do |format|
-      format.html { redirect_to taskline_task_comments_url, notice: 'Task comment was successfully destroyed.' }
+      format.html { redirect_to taskline_tasks_path, notice: 'Task comment was successfully destroyed.' }
       format.json { head :no_content }
       format.js { render :index, notice: 'タスクが削除されました' }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_taskline_task_comment
-      @taskline_task_comment = TaskComment.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def taskline_task_comment_params
-      params.require(:taskline_task_comment).permit(:user_id, :task_id, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_taskline_task_comment
+    @taskline_task_comment = TaskComment.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def taskline_task_comment_params
+    params.require(:task_comment).permit(:user_id, :task_id, :content)
+  end
 end

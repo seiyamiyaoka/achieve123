@@ -3,7 +3,7 @@ class Taskline::TasksController < ApplicationController
   end
 
   def goodjob
-    gdcount = Goodjob.where(task_id: goodjob_params[:task_id], user_id: current_user.id).count
+    gdcount = Goodjob.where(user_id: current_user.id, task_id: goodjob_params[:task_id]).count
     if gdcount == 0
       @gjb = Goodjob.create(user_id: current_user.id, task_id: goodjob_params[:task_id], number: 1)
     else
@@ -11,37 +11,20 @@ class Taskline::TasksController < ApplicationController
       @gjb.number += 1
       @gjb.update(user_id: current_user.id)
     end
-      @gjb_all_cnt = Goodjob.where(task_id: goodjob_params[:task_id]).sum(:number)
+    @gjb_all_cnt = Goodjob.where(task_id: goodjob_params[:task_id]).sum(:number)
     respond_to do |format|
       format.js
     end
   end
 
   def index
-    @feed_tasks = Task.all
+    @feed_tasks = current_user.taskfeed.page(params[:page])
     @taskcomment = TaskComment.new
-    @goodjobs = Goodjob.new
-  end
-
-  def create
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
-  def show
-  end
-
-  def update
-  end
-
-  def destroy
+    @goodjob = Goodjob.new
   end
 
   private
+
   def task_params
     params.require(:task).permit(:title, :content, :user_id, :charge_id, :deadline, :done, :status)
   end

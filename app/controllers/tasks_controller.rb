@@ -1,11 +1,13 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit]
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.where(user_id: current_user)
-    @user = User.find(current_user)
+    @tasks = Task.where(user_id: params[:user_id]).where.not(status: 1)
+    @user = User.find(params[:user_id])
+    @task_comment = @user.task_comments.build
   end
 
   # GET /tasks/1
@@ -63,13 +65,19 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params.require(:task).permit(:user_id, :title, :content, :deadline, :charge_id, :done, :status)
-    end
+  def correct_user
+    @user = User.find(params[:user_id])
+    redirect_to(user_tasks_path(current_user)) unless current_user == @user
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def task_params
+    params.require(:task).permit(:user_id, :title, :content, :deadline, :charge_id, :done, :status)
+  end
 end
