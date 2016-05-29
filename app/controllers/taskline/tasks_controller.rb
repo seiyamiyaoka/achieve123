@@ -11,10 +11,10 @@ class Taskline::TasksController < ApplicationController
       @gjb.number += 1
       @gjb.update(user_id: current_user.id)
     end
-      @gjb_all_cnt = Goodjob.where(task_id: goodjob_params[:task_id]).sum(:number)
-      respond_to do |format|
-        format.js
-      end
+    @gjb_all_cnt = Goodjob.where(task_id: goodjob_params[:task_id]).sum(:number)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def index
@@ -24,6 +24,7 @@ class Taskline::TasksController < ApplicationController
   end
 
   private
+
   def task_params
     params.require(:task).permit(:title, :content, :user_id, :charge_id, :deadline, :done, :status)
   end

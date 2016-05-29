@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+
+  resources :sales, only: [:index, :new, :create] do
+    collection do
+      post 'confirm'
+    end
+  end
+
+  get 'dave/dig'
+
+  get 'dave/speak'
+
+  get 'dave/teach'
+
   root 'top#index'
   post '/callback' => 'webhook#callback'
 
@@ -7,6 +21,7 @@ Rails.application.routes.draw do
   resources :tasks
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   resources :answers
   resources :questions do
     resources :answers
@@ -46,7 +61,7 @@ Rails.application.routes.draw do
      member do
        get :following, :followers
      end
-     resources :submit_requests, shallow: true do
+     resources :submit, shallow: true do
        get 'approve'
        get 'unapprove'
        get 'reject'
@@ -58,5 +73,8 @@ Rails.application.routes.draw do
 
    resources :relationships, only: [:create, :destroy]
 
+   get 'say/dave' => 'say#hello'
+   get 'say/goodbye'
+   get 'say/something'
    match "*path" => "application#handle_404", via: :all
 end

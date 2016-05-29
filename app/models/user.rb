@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   require 'mail'
+  include CsvExportable
   # validate :add_error
 
   # def add_error
@@ -31,21 +32,23 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships, source: :follower
+  has_many :submits, dependent: :destroy
+  has_many :sales, dependent: :destroy
 
+  scope :sns_user, -> { where.not(provider: "") }
+  scope :first_edition_user, -> (num){ order(created_at: :desc).limit(num) }
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-
     user = User.where(provider: auth.provider, uid: auth.uid).first
-
+    
     unless user
-user = User.create(name: auth.extra.raw_info.name,
+      user = User.create(name: auth.extra.raw_info.name,
                    provider: auth.provider,
                    uid: auth.uid,
                    email: User.create_unique_email,
                    password: Devise.friendly_token[0,20])
-
-end
-user
+    end
+      user
   end
 
  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
@@ -58,10 +61,10 @@ user
                    profile_image_url: auth.info.image,
                    email: User.create_unique_email,
                    password: Devise.friendly_token[0,20])
-end
-user
+      end
+      user
 
- end
+       end
 
  def self.find_for_line_oauth(auth, signed_in_resource=nil)
   user = User.where(provider: auth.provider, uid: auth.uid).first
@@ -72,14 +75,14 @@ user
                    uid: auth.uid,
                    image: auth.info.image,
                    password: Devise.friendly_token[0,20])
-end
-user
+  end
+    user
 
  end
 
-   def self.create_unique_string
-SecureRandom.uuid
-end
+  def self.create_unique_string
+  SecureRandom.uuid
+  end
 
   def self.create_unique_email
     User.create_unique_string + "@example.com"
@@ -111,5 +114,9 @@ end
     tasks = Task.where(user_id: self)
     Task.from_users_followed_by(self).order(updated_at: :desc)
   end
-  # フォローし合っているユーザ一覧を取得
+  # 繋がっているユーザ一覧を取得
+  def self.friend_user(user)
+      self.from_users_followed_by(user)
+  end
+
 end

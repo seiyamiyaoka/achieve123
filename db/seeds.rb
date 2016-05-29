@@ -30,12 +30,11 @@
   #   %w(洗濯機 冷蔵庫 エアコン).each do |name|
   #   b.products.create! name: name, price: @random * 10000, released_on: @random.day.ago
   #   end
-
-  100.times do |n|
-    User.create(
-    name: "Test Diver#{n}",
-    email: "diveintocode#{n}@example.com",
-    password: "iwillbeanengineer",
-    uid: "#{n}"
-    )
-  end
+10.times do |i|
+rand_id = 0
+until User.find_by_id(rand_id) != nil do
+rand_id = rand(1..1000)
+end
+a = Blog.create( title: "title#{i}", content: "sample text #{i}", user_id: rand_id )
+binding.pry
+end

@@ -9,6 +9,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "bootstrap", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://js.pusher.com/3.1/pusher.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -38,6 +39,23 @@
           <li><%= link_to"新規登録",new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
       <% end %>
+
+      <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('b290229572edbeb5ecf9', {
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('my_event', function(data) {
+      alert(data.message);
+    });
+  </script>
+
+
         <% if user_signed_in? %>
             <ul class="dropdown-menu">
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -47,6 +65,7 @@
               <li><%= link_to "マイページ/登録解除", edit_user_registration_path %></li>
               <li><%= link_to "マイタスク", user_tasks_path(current_user.id) %></li>
               <li><%= link_to "タスク一覧", taskline_tasks_path %></li>
+              <li><%= link_to "依頼一覧", user_submit_index_path(current_user.id) %></li>
               <li role="separator" class="divider"></li>
        <% else %>
   <% end %>
@@ -56,7 +75,7 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
+<%= yield :sidebar %>
 <%= yield %>
 
     <%= link_to "ホーム",root_path%>

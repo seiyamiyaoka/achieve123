@@ -1,0 +1,53 @@
+<% if submit_requests.present? %>
+  <p><%= submit_requests.count %></p>
+  <div>
+    <table>
+      <th>ステータス</th>
+      <th>タスク・タイトル</th>
+      <th>依頼者</th>
+      <th>担当者</th>
+      <th>依頼日</th>
+      <th>タスク・ステータス</th>
+      <tbody>
+        <% submit_requests.each do |sr| %>
+          <div class="sr_tbl">
+            <tr>
+
+              <% if sr.status == 1 %>
+                <td>未承認</td>
+              <% elsif sr.status == 2 %>
+                <td>承認済み</td>
+              <% elsif sr.status == 8 %>
+                <td>取消済</td>
+              <% elsif sr.status == 9 %>
+                <td>却下</td>
+              <% end %>
+
+              <td><%= link_to sr.task.title, task_path(sr.task) %></td>
+              <td><%= sr.task.user.name %></td>
+              <% if sr.charge_id == current_user.id %>
+                <td>(自分)</td>
+              <% else %>
+                <td><%= sr.charger.name %></td>
+              <% end %>
+              <td><%= sr.created_at %></td>
+              <td><%= link_to '詳細', submit_path(sr) %></td>
+
+              <% unless sr.charge_id == current_user.id %>
+                <td><%= link_to '編集', edit_submit_path(sr) %></td>
+                <td><%= link_to '削除', submit_path(sr), method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %></td>
+              <% end %>
+
+              <% unless sr.user_id == current_user.id %>
+                <td><%= link_to '承認', submit_approve_path(sr), remote: true unless sr.status == 2 %></td>
+                <td><%= link_to '却下', submit_unapprove_path(sr), remote: true unless sr.status == 9 %></td>
+              <% end %>
+
+              <td><%= link_to '取消', submit_reject_path(sr), remote: true if sr.status == 1 %></td>
+            </tr>
+          </div>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

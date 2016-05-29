@@ -5,9 +5,12 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog.all
+
+    Pusher.trigger('test_channel', 'my_event', message: 'hello world')
+
     respond_to do |format|
       format.html
-      format.atom
+      format.json
     end
   end
 
@@ -17,7 +20,7 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @comment = @blog.comments.build
     @comments = @blog.comments
-    #binding.pry
+    # binding.pry
   end
 
   # GET /blogs/new
@@ -38,7 +41,7 @@ class BlogsController < ApplicationController
         format.html { redirect_to @blog, notice: '冒険の書が記録されました.' }
 
         format.json { render :show, status: :created, location: @blog }
-#           Slack.chat_postMessage(text: 'エクスペクトパッパローナ', username: 'noro', channel: '#random',icon_url:'http://diveintocode.jp/images/noro_pic.png')
+      #           Slack.chat_postMessage(text: 'エクスペクトパッパローナ', username: 'noro', channel: '#random',icon_url:'http://diveintocode.jp/images/noro_pic.png')
       else
         format.html { render :new }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
@@ -71,17 +74,18 @@ class BlogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:id])
-      if current_user.id == @blog.user.id
-        else
-        redirect_to root_path
-    end
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blog_params
-      params.require(:blog).permit(:title,:content,:image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blog
+    @blog = Blog.find(params[:id])
+    if current_user.id == @blog.user.id
+    else
+      redirect_to root_path
+  end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def blog_params
+    params.require(:blog).permit(:title, :content, :image)
+  end
 end

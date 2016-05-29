@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to blog_path(@comment.blog_id), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
         @blog = @comment.blog
-        format.js { render :index,notice: 'ブログが作成されました' }
+        format.js { render :index, notice: 'ブログが作成されました' }
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -61,18 +61,19 @@ class CommentsController < ApplicationController
       format.html { redirect_to blog_path(@comment.blog), notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
       @blog = @comment.blog
-      format.js {render :index, notice: 'ブログが削除されました。'}
+      format.js { render :index, notice: 'ブログが削除されました。' }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:user_id, :blog_id, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comment_params
+    params.require(:comment).permit(:user_id, :blog_id, :content)
+  end
 end

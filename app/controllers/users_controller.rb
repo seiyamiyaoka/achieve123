@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action only:[:show, :following, :followers]
+  before_action only: [:show, :following, :followers]
   def index
     @users = User.all
   end
@@ -21,11 +21,12 @@ class UsersController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:name, :description, :image_url)
-    end
 
-    def set_user
-      @user = User.find_by(params[:id])
-    end
+  def user_params
+    params.require(:user).permit(:name, :description, :image_url)
+  end
+
+  def set_user
+    @user = User.find_by(params[:id])
+  end
 end
