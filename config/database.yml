@@ -2,7 +2,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
- 
+
   pool: 5
 
 development:
@@ -14,4 +14,7 @@ test:
   database: achieve123_test
 
 production:
+  <<: *default
+  database: achieve123_production
+  username: achieve123
   url: <%= ENV['DATABASE_URL'] %>

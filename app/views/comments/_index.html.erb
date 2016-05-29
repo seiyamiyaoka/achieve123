@@ -1,0 +1,8 @@
+    <% comments.each do |comment| %>
+         <% unless comment.id.nil? %>
+         <%= comment.user %>
+         <%= comment.content %>
+         <%= link_to 'edit', edit_blog_comment_path(@blog, comment) %>
+         <%= link_to "delete", blog_comment_path(@blog, comment), method: :delete, remote: true, data: { confirm: "Are you sure?" } %></td>
+       <% end %>
+    <% end %>

@@ -1,0 +1,2 @@
+$('#comment_area').html('<%= j(render partial:'comments/index',locals:{ comments: @blog.comments }) %>');
+$(':text').val('')

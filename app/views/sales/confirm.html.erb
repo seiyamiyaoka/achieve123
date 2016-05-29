@@ -1,0 +1,7 @@
+<%= form_for @sales,url:sales_path do |f| %>
+<%= f.text_field :price %>
+<% end %>
+<%= form_tag(action: :create, method: :post) do %>
+<%= label_tag  :credit_name %>
+<script src="https://checkout.webpay.jp/v1/" class="webpay-button" data-key="<%= 'test_public_fvh7UPd4AfvC6825vxf8oelQ' %>"></script>
+<% end %>

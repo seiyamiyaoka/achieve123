@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>User:</strong>
+  <%= @submit_request.user.name if @submit_request.user.present? %>
+</p>
+<p>
+  <strong>Task:</strong>
+  <%= @submit_request.task.title %>
+</p>
+<p>
+  <strong>Charge:</strong>
+  <%= @submit_request.charger.name if @submit_request.user.present? %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= if @submit_request.status == 0 then "未依頼"
+elsif @submit_request.status == 1 then "依頼中"
+elsif @submit_request.status == 2 then "承認済み"
+elsif @submit_request.status == 8 then "取り消し済み"
+elsif @submit_request.status == 9 then "却下済み"
+end %>
+</p>
+<p>
+  <strong>Message:</strong>
+  <%= @submit_request.message %>
+</p>
+<%= link_to "編集", edit_submit_path(@submit_request) %>
+<%= link_to "戻る", user_submit_index_path(@submit_request) %>

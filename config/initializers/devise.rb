@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '38674aba743b1bdcf639f6c35301df8ff791c59e0e04a92efdecd880e14b8482871229412888886f5f0e5accb3fc4f03350d0ec2a97f1891ded592765e206a4c'
+   config.secret_key = '38674aba743b1bdcf639f6c35301df8ff791c59e0e04a92efdecd880e14b8482871229412888886f5f0e5accb3fc4f03350d0ec2a97f1891ded592765e206a4c'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -259,4 +259,27 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  if Rails.env.production?
+config.omniauth :facebook, ENV['FACEBOOK_PRODUCT_ID'], ENV['FACEBOOK_PRODUCT_PASSWORD'], :scope => 'email', :display => 'popup', :info_fields => 'name, email'
+
+config.omniauth :twitter, ENV['TWITTER_PRODUCT_ID'], ENV['TWITTER_PRODUCT_PASSWORD'],{
+      :secure_image_url => 'true',
+      :image_size => 'original',
+      :authorize_params => {
+        :force_login => 'true',
+        :lang => 'ja'
+      }
+    }
+  else
+config.omniauth :facebook, ENV['FACEBOOK_DEVELOP_ID'], ENV['FACEBOOK_DEVELOP_PASSWORD'], :scope => 'email', :display => 'popup', :info_fields => 'name, email'
+config.omniauth :line,  "1463270382", "9f06e3eddae591f99e2898d256af412d"
+config.omniauth :twitter, ENV['TWITTER_DEVELOP_ID'], ENV['TWITTER_DEVELOP_PASSWORD'],{
+      :secure_image_url => 'true',
+      :image_size => 'original',
+      :authorize_params => {
+        :force_login => 'true',
+        :lang => 'ja'
+      }
+    }
+  end
 end

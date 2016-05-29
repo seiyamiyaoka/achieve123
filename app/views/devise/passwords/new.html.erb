@@ -1,15 +1,54 @@
-<h2>Forgot your password?</h2>
+<h2>パスワードを忘れた方</h2>
+<div class="middlePage">
+<div class="page-header">
+
+</div>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
   <%= devise_error_messages! %>
 
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">パスワード忘れた方は再設定がひつようです！</h3>
+  </div>
+  <div class="panel-body">
+
+  <div class="row">
+
+<!-- <div class="col-md-5" >
+<a href="#"><img src="http://techulus.com/buttons/fb.png" /></a><br/>
+<a href="#"><img src="http://techulus.com/buttons/tw.png" /></a><br/>
+<a href="#"><img src="http://techulus.com/buttons/gplus.png" /></a>
+</div>
+ -->
+
+<!--  入力フォーム-->
+
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "パスワード再設定メール送信" %>
+  </div>
+
+
+</fieldset>
+</form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+
+
   </div>
 <% end %>
 

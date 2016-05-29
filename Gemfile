@@ -1,7 +1,21 @@
 source 'https://rubygems.org'
-
+gem 'therubyracer', platforms: :ruby
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'dotenv-rails'
+gem 'devise-i18n'
+gem 'rmagick'
+# 画像アップロード
+gem 'carrierwave'
+# 画像のサイズ調整
 # ログイン機能
+gem 'rails-erd'
+gem 'rails_12factor', group: :production
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'slack-api'
+gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
@@ -28,20 +42,51 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+group :development do
+  gem 'letter_opener'
+end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'rspec-rails','~> 3.1.0'
+  gem 'factory_girl_rails','~> 1.3.0'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+gem 'web-console', group: :development
+group :test do
+  gem 'capybara','~> 2.4.3'
+  gem 'database_cleaner','~> 1.3.0'
+  gem 'launchy','~> 2.4.2'
+  gem 'selenium-webdriver','~> 2.43.0'
+end
+gem 'faker'
+gem 'pry-rails'
+gem 'google-api-client', '0.9'
+gem 'default_value_for','~> 3.0.0'
+gem 'rails_admin'
+gem 'cancan'
+gem 'omniauth-line'
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'kaminari'
+gem 'webpay'
 
-gem 'dotenv-rails'
+
+gem 'pusher'
+
+
+group :development do
+  gem 'capistrano', '3.4.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn'
+
+end

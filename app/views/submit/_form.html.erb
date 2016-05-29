@@ -1,0 +1,8 @@
+<%= form_for(@submit_request, url: user_submit_index_path(user_id: @submit_request.user_id)) do |f| %>
+  <p><%= f.collection_select :task_id, @task, :id, :title %></p>
+  <p><%= f.collection_select :charge_id, @users, :id, :name %></p>
+  <p><%= f.text_area :message, placeholer: "依頼メッセージ", seze: "50*100" %></p>
+  <p><%= f.hidden_field :user_id %></p>
+  <p><%= f.hidden_field :status %></p>
+  <p><%= f.submit "依頼する", class: "btn btn-large btn-primary" %></p>
+<% end %>

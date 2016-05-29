@@ -1,15 +1,26 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
+
+    Pusher.trigger('test_channel', 'my_event', message: 'hello world')
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blog = Blog.find(params[:id])
+    @comment = @blog.comments.build
+    @comments = @blog.comments
+    # binding.pry
   end
 
   # GET /blogs/new
@@ -24,12 +35,13 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(blog_params)
-
+    @blog = current_user.blogs.build(blog_params)
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to @blog, notice: '冒険の書が記録されました.' }
+
         format.json { render :show, status: :created, location: @blog }
+      #           Slack.chat_postMessage(text: 'エクスペクトパッパローナ', username: 'noro', channel: '#random',icon_url:'http://diveintocode.jp/images/noro_pic.png')
       else
         format.html { render :new }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
@@ -42,7 +54,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        format.html { redirect_to @blog, notice: '冒険の書が更新されました.' }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
@@ -56,19 +68,24 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
+      format.html { redirect_to blogs_url, notice: '残念ながら冒険の書は消えました。。。.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blog_params
-      params[:blog]
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blog
+    @blog = Blog.find(params[:id])
+    if current_user.id == @blog.user.id
+    else
+      redirect_to root_path
+  end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def blog_params
+    params.require(:blog).permit(:title, :content, :image)
+  end
 end

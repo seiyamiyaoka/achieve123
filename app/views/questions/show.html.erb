@@ -1,0 +1,31 @@
+<p>
+  <strong>username:</strong>
+  <%= @question.user.name %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= selected_language(@question) %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= selected_category(@question) %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @question.content %>
+</p>
+
+<p>
+  <div id="answer_area">
+    <%= render partial: 'answers/index', locals: { answers: @answers } %>
+  </div>
+</p>
+
+<p>
+  <%= render partial:'answers/form',locals: { answer: @answer } %>
+</p>
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
